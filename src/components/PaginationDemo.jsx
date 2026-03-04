@@ -8,6 +8,7 @@ export default function PaginationDemo() {
     totalPages,
     startIndex,
     endIndex,
+    setPage,
     nextPage,
     prevPage,
     canNextPage,
@@ -15,6 +16,8 @@ export default function PaginationDemo() {
   } = usePagination(items.length, 10, 1);
 
   const currentItems = items.slice(startIndex, endIndex + 1);
+
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div>
@@ -33,6 +36,19 @@ export default function PaginationDemo() {
       <button onClick={nextPage} disabled={!canNextPage}>
         Next
       </button>
+      <div>
+        {pageNumbers.map((page) => (
+          <button
+            key={page}
+            onClick={() => setPage(page)}
+            style={{
+              fontWeight: page === currentPage ? "bold" : "normal",
+            }}
+          >
+            {page}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

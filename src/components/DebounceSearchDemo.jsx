@@ -14,7 +14,7 @@ export default function DebounceSearchDemo() {
 
   return (
     <div>
-      <h1>Deounce Search Demo</h1>
+      <h1>Debounce Search Demo</h1>
       <p>Debounce Delay (ms)</p>
       <input
         type="text"
